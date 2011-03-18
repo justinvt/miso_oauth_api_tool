@@ -1,0 +1,40 @@
+!!! 1.1
+%html
+  %head
+    %title Miso Api tool
+    %link{:rel => :stylesheet, :type => "text/css", :href => "/css/app.css"}
+    %script{:type => "text/javascript", :src => "/javascripts/jquery.js"}
+    %script{:type => "text/javascript", :src => "/javascripts/app.js"}
+  %body
+    %h1 Miso API Test Tool
+    %div.field.submit
+      %input{:type => :button, :id => :submit, :value => "Submit"}
+    %textarea#response{ }= ""
+    %form#tool{:action => "/proxy/something", :method => "POST"}
+      %div.request.fieldset
+        %h2 Request Setup
+        %div.field
+          %label Route Prefix
+          %input{:type => :text, :name => "route_prefix", :id => "prefix", :value => "/api/oauth/v1"}
+        %div.field
+          %label Endpoint
+          %input{:type => :text, :name => "relative_url", :id => "relative",:value => "users/show"}
+        %div.field
+          %label HTTP Method
+          %select{:name => "request_method", :id => "method"}
+            - [:GET, :POST, :PUT, :DELETE].each do |method|
+              %option{:value => method}= method.to_s
+        %input{:type => :hidden, :name => "_method", :value => "POST", :id => "hidden_method"}
+        %div.field
+          %label Format
+          %select{:name => "return_format", :id => "format"}
+            - [:json, :js, :xml, :html].each do |format|
+              %option{:value => format}= format.to_s
+      %div.keypairs.fieldset
+        %h2 Key/Value Pairs
+        - 8.times do |i|
+          %div.field.keypair
+            %label Name
+            %input{:type => :text, :name => "field_#{i.to_s}_name", :class=> :name}
+            %label Value
+            %input{:type => :text, :name => "field_#{i.to_s}_value", :class=> :value}

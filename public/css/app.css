@@ -1,0 +1,45 @@
+body{
+font-family: Arial;
+padding:40px;
+}
+
+h2{
+color: #666;
+}
+
+#response{ width: 690px; height: 100px}
+.fieldset{width:450px;float:left}
+.fieldset.request{width:200px;}
+.fieldset.keypairs{padding:0 0px 0 40px;margin:0 0px 0 40px;border:solid 1px #ccc;border-width:0 0 0 1px}
+.field{margin: 20px 0 0 0;clear:left;float:left}
+
+label{
+    color: #444;
+    display:block;
+    padding: 0 10px 10px 0;
+}
+
+.keypair{
+    float:left;
+    clear:left;
+}
+.keypair label{
+    float:left ;
+}
+
+.keypair input{
+    float:left ;
+    margin: 0 10px 0 0;
+}
+
+.submit{
+    position: absolute;
+    top: 0;
+    right: 40px;
+    width: 200px;
+    text-align: right;
+
+}
+.submit input{
+        font-size: 2em;
+}
