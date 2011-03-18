@@ -3,8 +3,7 @@ Setup
 
 Set up the following environment variables on your computer
 
-```bash
-
+```
 export MISO_CONSUMER_KEY=<your miso consumer key>
 
 export MISO_CONSUMER_SECRET=<your miso consumer secret>
@@ -17,8 +16,7 @@ export MISO_CALLBACK_URL="http://localhost:4567/oauth/callback"
 
 cd into this repo and run
 
-```bash
-
+```
 ruby app.rb
 
 ```
