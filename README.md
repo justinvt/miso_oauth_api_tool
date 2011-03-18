@@ -1,6 +1,10 @@
 Setup
 ========================
 
+Clone the repository
+
+    git clone git@github.com:justinvt/miso_oauth_api_tool.git
+
 Set up the following environment variables on your computer
 
 
