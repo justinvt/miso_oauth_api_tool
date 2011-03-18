@@ -44,7 +44,7 @@ get "/oauth/callback" do
   @request_token = OAuth::RequestToken.new(consumer, session[:request_token], session[:request_token_secret])
   @access_token = @request_token.get_access_token(:oauth_verifier => params[:oauth_verifier])
   session[:access_token], session[:access_secret] = @access_token.token, @access_token.secret
-  redirect "/api/test"
+  redirect "/oauth/user"
 end
 
 # Use the access token to access a user's checkins and basic information.
@@ -70,14 +70,15 @@ get %r{\/proxy\/([\w\/\.]+)$} do
   endpoint = params[:captures].first.to_s
   url ="/api/#{endpoint}"
   full_url = [url,request_ps].join("?")
-  puts request_pms.inspect
-  if request_pms["method"] == "GET"
+  puts full_url
+  puts request_ps
+  if request_pms["_method"] == "GET"
     @access_token.get(full_url).body
-  elsif request_pms["method"] == "POST"
+  elsif request_pms["_method"] == "POST"
     @access_token.post(url, request_pms).body
-  elsif request_pms["method"] == "PUT"
+  elsif request_pms["_method"] == "PUT"
     @access_token.put(url, request_pms).body
-  elsif request_pms["method"] == "DELETE"
-    @access_token.delete(full_url).body
+  elsif request_pms["_method"] == "DELETE"
+    @access_token.post(url,request_pms).body
   end
 end

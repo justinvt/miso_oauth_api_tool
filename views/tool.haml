@@ -35,6 +35,6 @@
         - 8.times do |i|
           %div.field.keypair
             %label Name
-            %input{:type => :text, :name => "field_#{i.to_s}_name", :class=> :name}
+            %input{:type => :text, :name => "field_#{i.to_s}_name", :class=> :name, :value => i == 0 ? "user_id" : nil}
             %label Value
-            %input{:type => :text, :name => "field_#{i.to_s}_value", :class=> :value}
+            %input{:type => :text, :name => "field_#{i.to_s}_value", :class=> :value, :value => i == 0 ? "138625" : nil}
