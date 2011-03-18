@@ -3,7 +3,7 @@ Setup
 
 Set up the following environment variables on your computer
 
-```sh
+```zsh
 export MISO_CONSUMER_KEY="your miso consumer key"
 
 export MISO_CONSUMER_SECRET="your miso consumer secret"
